@@ -8,12 +8,15 @@ class SpeedControl extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text(
-          'Speed',
-          style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            color: Colors.indigo.withOpacity(0.8),
+        Center(
+          child: Text(
+            'Rotation\nSpeed',
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: Colors.indigo.withOpacity(0.8),
+            ),
+            textAlign: TextAlign.center,
           ),
         ),
         SizedBox(height: 15),
