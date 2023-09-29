@@ -29,16 +29,16 @@ class DPadButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: this.size * 1.25 * sizeMultiplier,
-      height: this.size * 1.25 * sizeMultiplier,
+      width: size * 1.25 * sizeMultiplier,
+      height: size * 1.25 * sizeMultiplier,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [Color(0xFFA8ADC7), Color(0xFFC8CDEC)],
         ),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color(0xFF9498AF),
             offset: Offset(8, 8),
@@ -52,12 +52,7 @@ class DPadButton extends StatelessWidget {
         ],
       ),
       child: TextButton(
-        onPressed: () => _onButtonPressed(this.pressedButton),
-        child: Icon(
-          iconData,
-          size: this.size * sizeMultiplier,
-          color: Colors.white,
-        ),
+        onPressed: () => _onButtonPressed(pressedButton),
         style: TextButton.styleFrom(
           padding: EdgeInsets.zero,
           alignment: Alignment.center,
@@ -65,6 +60,11 @@ class DPadButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30), // Rounded rectangle
           ),
+        ),
+        child: Icon(
+          iconData,
+          size: size * sizeMultiplier,
+          color: Colors.white,
         ),
       ),
     );
