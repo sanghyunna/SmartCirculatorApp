@@ -1,6 +1,8 @@
 import json
 from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def welcome(request):
     if request.method == 'GET':
         return JsonResponse({

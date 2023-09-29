@@ -1,7 +1,8 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-import json
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def control(request):
     if request.method == 'POST':
         print(request.body)
