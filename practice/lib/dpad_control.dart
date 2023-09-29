@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'dpad_button.dart';
 
 class DpadControl extends StatelessWidget {
@@ -80,6 +79,19 @@ class DpadControl extends StatelessWidget {
               iconData: Icons.arrow_circle_down_outlined,
               pressedButton: 'Down',
               buttonColor: Colors.blue,
+            ),
+          ],
+        ),
+        SizedBox(height: 20 * size),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            DPadButton(
+              sizeMultiplier: size,
+              iconData: Icons.stop_sharp,
+              pressedButton: 'Stop',
+              buttonColor: Colors.blue,
+              isStopButton: true,
             ),
           ],
         ),

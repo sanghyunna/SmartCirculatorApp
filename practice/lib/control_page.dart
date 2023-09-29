@@ -34,10 +34,8 @@ class ControlPage extends StatelessWidget {
         ),
       ),
       body: Container(
-        // Wrap the body with a Container
         decoration: BoxDecoration(
-          color: Colors.indigo
-              .withOpacity(0.2), // Set the background color with 0.1 opacity
+          color: Colors.indigo.withOpacity(0.2),
         ),
         child: Center(
           child: Column(

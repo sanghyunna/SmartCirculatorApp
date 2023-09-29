@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:practice/dpad_button.dart';
 
 class SpeedControl extends StatelessWidget {
-  // makes two dpad buttons, up and down
   @override
   Widget build(BuildContext context) {
     return Column(
