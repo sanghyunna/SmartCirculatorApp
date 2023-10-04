@@ -1,11 +1,13 @@
+import json
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from service import *
+from .service import *
 
 @csrf_exempt
 def control(request):
     if request.method == 'POST':
+        json_data = json.loads(request.body)
         print(request.body)
         res = request.body.message
         if res == "Up":

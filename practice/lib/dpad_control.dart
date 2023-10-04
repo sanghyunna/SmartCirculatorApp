@@ -13,12 +13,27 @@ class DpadControl extends StatelessWidget {
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Move Circulator',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.indigo.withOpacity(0.8),
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+        SizedBox(height: 15),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             DPadButton(
               sizeMultiplier: size,
               iconData: Icons.filter_1,
               pressedButton: 'One',
-              size: 60 * size,
+              size: 80 * size,
               buttonColor: Colors.red,
             ),
             SizedBox(width: 20 * size),
@@ -26,7 +41,7 @@ class DpadControl extends StatelessWidget {
               sizeMultiplier: size,
               iconData: Icons.filter_2,
               pressedButton: 'Two',
-              size: 60 * size,
+              size: 80 * size,
               buttonColor: Colors.red,
             ),
             SizedBox(width: 20 * size),
@@ -34,12 +49,12 @@ class DpadControl extends StatelessWidget {
               sizeMultiplier: size,
               iconData: Icons.filter_3,
               pressedButton: 'Three',
-              size: 60 * size,
+              size: 80 * size,
               buttonColor: Colors.red,
             ),
           ],
         ),
-        SizedBox(height: 50 * size),
+        SizedBox(height: 20 * size),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

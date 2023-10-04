@@ -11,7 +11,7 @@ class SpeedControl extends StatelessWidget {
           child: Text(
             'Rotation\nSpeed',
             style: TextStyle(
-              fontSize: 25,
+              fontSize: 28,
               fontWeight: FontWeight.bold,
               color: Colors.indigo.withOpacity(0.8),
             ),

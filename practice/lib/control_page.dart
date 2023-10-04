@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:practice/custom_button.dart';
+import 'package:practice/rotate_button.dart';
 import 'package:practice/speed_control.dart';
+import 'bulletin.dart';
 import 'dpad_control.dart';
 
 class ControlPage extends StatelessWidget {
@@ -13,8 +16,7 @@ class ControlPage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        backgroundColor:
-            Colors.transparent, // Set the app bar background to transparent
+        backgroundColor: Colors.transparent,
         elevation: 0,
         flexibleSpace: Container(
           decoration: BoxDecoration(
@@ -25,25 +27,55 @@ class ControlPage extends StatelessWidget {
               ], // Define your gradient colors
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              stops: [
-                0.0,
-                1.0
-              ], // Adjust stops to control the gradient transition
+              stops: [0.0, 1.0],
             ),
           ),
         ),
       ),
       body: Container(
+        // 배경색을 위한 Container
         decoration: BoxDecoration(
           color: Colors.indigo.withOpacity(0.2),
         ),
         child: Center(
           child: Column(
+            //
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(height: 150),
-              const SizedBox(height: 200),
+              Bulletin(),
+              const SizedBox(height: 30),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  CustomButton(
+                    // Delete Button
+                    iconData: Icons.delete,
+                    pressedButton: 'Delete',
+                    text: "Choose a waypoint to delete",
+                    size: 55,
+                  ),
+                  const SizedBox(width: 30),
+                  CustomButton(
+                    // Save Button
+                    iconData: Icons.save,
+                    pressedButton: 'Save',
+                    text: "Choose a waypoint to save",
+                    size: 55,
+                  ),
+                  const SizedBox(width: 30),
+                  RotateButton(
+                    // Rotation Button
+                    iconData: Icons.rotate_right,
+                    pressedButton: 'Rotate',
+                    selectedWaypoints: [],
+                    sendMessagesOrNot: false,
+                    size: 55,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 30),
+              Row(
+                // DpadControl & SpeedControl 가로 배치
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   DpadControl(size: 0.7),

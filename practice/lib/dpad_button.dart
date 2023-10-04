@@ -9,6 +9,8 @@ class DPadButton extends StatefulWidget {
   final bool isStopButton;
   final double size;
   final double sizeMultiplier;
+  final VoidCallback? onTap;
+  final bool sendMessagesOrNot;
 
   DPadButton({
     required this.iconData,
@@ -17,6 +19,8 @@ class DPadButton extends StatefulWidget {
     this.isStopButton = false,
     this.buttonColor = Colors.indigo,
     this.size = 80,
+    this.onTap,
+    this.sendMessagesOrNot = true,
   });
 
   @override
@@ -32,11 +36,14 @@ class _DPadButtonState extends State<DPadButton> {
       color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(30),
-        onTap: () {},
+        onTap: () {
+          if (widget.onTap != null) {
+            widget.onTap!();
+          }
+        },
         onTapDown: (_) {
           _onButtonPressed();
         },
-        // 일단은 불필요하니 주석처리
         // onTapUp: (_) {
         //   _onButtonRelease();
         // },
@@ -86,9 +93,18 @@ class _DPadButtonState extends State<DPadButton> {
       _isButtonPressed = true;
     });
     print('Button Pressed: ${widget.pressedButton}');
-
-    MessageSender messageSender = MessageSender();
-    messageSender.sendMessage(widget.pressedButton);
+    if (widget.sendMessagesOrNot) {
+      MessageSender messageSender = MessageSender();
+      if (widget.pressedButton == "One") {
+        messageSender.sendMessage("m 1");
+      } else if (widget.pressedButton == "Two") {
+        messageSender.sendMessage("m 2");
+      } else if (widget.pressedButton == "Three") {
+        messageSender.sendMessage("m 3");
+      } else {
+        messageSender.sendMessage(widget.pressedButton);
+      }
+    }
   }
 
   void _onButtonRelease() {
