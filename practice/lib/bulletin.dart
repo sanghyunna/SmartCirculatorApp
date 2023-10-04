@@ -1,12 +1,33 @@
 import 'package:flutter/material.dart';
 
-class Bulletin extends StatelessWidget {
+class Bulletin extends StatefulWidget {
+  @override
+  _BulletinState createState() => _BulletinState();
+}
+
+class _BulletinState extends State<Bulletin> {
+  String waypointOne = '';
+  String waypointTwo = '';
+  String waypointThree = '';
+
+  void refresh(int n, String location) {
+    if (n == 1) {
+      setState(() {
+        waypointOne = location;
+      });
+    } else if (n == 2) {
+      setState(() {
+        waypointTwo = location;
+      });
+    } else if (n == 3) {
+      setState(() {
+        waypointThree = location;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    String waypointOne = '';
-    String waypointTwo = '';
-    String waypointThree = '';
-
     return Container(
       width: 300,
       height: 150,

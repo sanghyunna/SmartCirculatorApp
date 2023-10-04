@@ -21,9 +21,13 @@ class MessageSender {
         },
         body: jsonBody,
       );
+      String responseBody = response.body;
+      Map<String, dynamic> data = json.decode(responseBody);
+      String status = data['status'];
 
       if (response.statusCode == 200) {
         print('Message sent successfully');
+        print(response);
       } else {
         print('Failed to send message. Status code: ${response.statusCode}');
       }

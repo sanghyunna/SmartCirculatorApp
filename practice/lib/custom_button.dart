@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dpad_button.dart';
 import 'message_sender.dart';
+import 'bulletin.dart';
 
 class CustomButton extends StatefulWidget {
   final IconData iconData;
@@ -11,6 +12,7 @@ class CustomButton extends StatefulWidget {
   final double sizeMultiplier;
   final String text;
   final bool sendMessagesOrNot;
+  final Bulletin? bulletin;
 
   CustomButton(
       {required this.iconData,
@@ -20,6 +22,7 @@ class CustomButton extends StatefulWidget {
       this.text = "Choose a waypoint",
       this.buttonColor = Colors.indigo,
       this.sendMessagesOrNot = false,
+      this.bulletin = null,
       this.size = 80});
 
   @override

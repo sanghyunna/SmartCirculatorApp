@@ -24,7 +24,7 @@ class ControlPage extends StatelessWidget {
               colors: [
                 Colors.indigo.withOpacity(0.8),
                 Colors.indigo.withOpacity(0.2)
-              ], // Define your gradient colors
+              ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               stops: [0.0, 1.0],
