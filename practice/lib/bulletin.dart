@@ -1,4 +1,9 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'message_sender.dart';
+import 'package:path_provider/path_provider.dart';
 
 class Bulletin extends StatefulWidget {
   @override
@@ -28,14 +33,44 @@ class _BulletinState extends State<Bulletin> {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> readJsonFromFile() async {
+      final directory = await getApplicationDocumentsDirectory();
+      final file =
+          File('C:\\dev\\SmartCirculatorApp\\practice\\lib\\waypoints.json');
+
+      if (await file.exists()) {
+        String jsonString = await file.readAsString();
+        Map<String, dynamic> data = json.decode(jsonString);
+        refresh(1, data['waypoint1']);
+        refresh(2, data['waypoint2']);
+        refresh(3, data['waypoint3']);
+      } else {
+        print('File does not exist');
+        // Handle the case where the file doesn't exist
+      }
+    }
+
     return Container(
-      width: 300,
-      height: 150,
+      width: 320,
+      height: 170,
       color: Colors.indigo.withOpacity(0.5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                  onPressed: () async {
+                    await MessageSender().sendMessage('o');
+                    await readJsonFromFile();
+                  },
+                  child: Text('Refresh')),
+              SizedBox(width: 200),
+            ],
+          ),
+          SizedBox(height: 5),
           Text(
             'Waypoint 1: $waypointOne',
             style: TextStyle(
